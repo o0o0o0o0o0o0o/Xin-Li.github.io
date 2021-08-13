@@ -23,7 +23,7 @@ email: lixinlee3@gmail.com
 # description: >- # this means to ignore newlines until "baseurl:"
 #   Hi, this is the home page for me. Blah Blah Blah Blah Blah Blah Blah Blah Blah
 #   Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "Xin-Li.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  o0o0o0o0o0o0o
 
