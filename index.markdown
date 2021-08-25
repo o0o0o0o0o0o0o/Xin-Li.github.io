@@ -163,8 +163,8 @@ Closed-form matting is great, but it suffers from its extremely long processing 
 	</figure> 
 </div>  
 
-different objects are marked in different colors.    
-              
+different objects are marked in different colors.
+
 * ### Haze removal  
 
 This is a reimplementation of "Single Image Haze Removal Using Dark Channel Prior", using fast guided filter for the matting part.
