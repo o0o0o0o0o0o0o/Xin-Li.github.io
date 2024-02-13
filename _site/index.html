@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Xin Li</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Xin Li" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="/" />
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Xin Li" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Xin Li" />
+<script type="application/ld+json">
+{"headline":"Xin Li","url":"/","name":"Xin Li","@type":"WebSite","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Xin Li</h1>
+      <h2 class="project-tagline"></h2>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="about-me">About Me</h1>
+<p>    Welcome to my site! My name is Xin Li, I’m currently a computer science graduate student at UCSD. I received my Bachelor’s Degree in Computer Science from Sichuan University, China in June 2020. At Sichuan University, I took part in several research activities of image processing and medical image denoising. It was during this time that I discovered my interests in image algorithms and graphics.<br />
+    I’m super excited about all the visual effects and illusions, the idea of being able to create an interacting vitual new world from bottom up fascinates me, the elegance and sophistication in the design of all the image algorithms makes me obsessed, the applications and enhancements of these algorithms astonishes me.</p>
+
+<h1 id="projects">Projects</h1>
+<p>This section shows results of some of my projects, implementation for most of them can be found in my github repository.</p>
+
+<h2 id="physics-simulation"><em>Physics Simulation</em></h2>
+<p>In this project, I simulate the kinematics of some classic physics models including fluids, rigid body, finite elements, and rendering using OpenGL.</p>
+
+<h3 id="finite-elements">Finite Elements</h3>
+
+<p>For this part, 5 tetrahedrons(each has 4 corner particles) are used to build a cube, and the cubes are then used to build cuboids.</p>
+<figure>
+	<center>
+		<img src="./images/TetrahedronCube.png" alt="how are the tetrahedrons organized" width="50%" height="50%" />
+  		<figcaption>organize tetrahedrons to build cuboids</figcaption>
+  	</center>
+</figure>
+
+<p>And then the movements of all the particles are integrated by calculating the forces applied on them using strain and stress tensor. See the following GIF of how a cuboid object will bounce when it hits the ground.</p>
+
+<figure>
+	<center>
+  		<img src="./images/finite-element.gif" alt="Tetrahedron cube bounces" width="50%" height="50%" />
+  		<figcaption>Tetrahedron Cube bounces</figcaption>
+  	</center>
+</figure>
+
+<p>It will bounce because it deforms, and the inner pressure of the solid object trys to resist the deformation and so pushes it up. Eventually it will come to rest because of loss of energy.</p>
+
+<h3 id="fluid">Fluid</h3>
+
+<p>The fluid system in this simulation is particle based(smooth particle hydrodynamics), Navier-Stokes Equation is used to derive the acceleration of the particles, taking into account of convection, viscosity, and pressure of the fluid, and then the movements of the particles are integrated.</p>
+
+<figure>
+	<center>
+  		<img src="./images/fluid.gif" alt="Tetrahedron cube bounces" width="50%" height="50%" />
+  		<figcaption>SPH simulation</figcaption>
+  	</center>
+</figure>
+<!-- ![](./images/fluid.gif){:height="50%" width="50%"}   -->
+
+<p>A continuous version of fluid simulation can be rendered using methods like Marching Cubes.</p>
+
+<h3 id="rigid-bodies">Rigid Bodies</h3>
+
+<!-- ![](./images/rb1.gif){:height="50%" width="50%"}![](./images/rb2.gif){:height="50%" width="50%"}  
+![](./images/rb3.gif){:height="50%" width="50%"}![](./images/rb4.gif){:height="50%" width="50%"}  -->
+
+<!-- <style>
+	div{float: left;}
+</style> -->
+
+<p>The position of the points of a rigid body are fixed related to a reference point. In the simulation of rigid bodies, just keep track of the linear and angular momentum of the reference point, and calculate the volecity for all the points in each frame using these momentums and the Rotational Inertia.</p>
+
+<div style="float:left">
+	<figure>
+		<center>
+		  	<img src="./images/rb1.gif" alt="rigid body 1" width="45%" height="45%" />
+		  	<img src="./images/rb2.gif" alt="rigid body 2" width="45%" height="45%" />
+		  	<img src="./images/rb3.gif" alt="rigid body 3" width="45%" height="45%" />
+		  	<img src="./images/rb4.gif" alt="rigid body 4" width="45%" height="45%" />
+		  	<figcaption>kinematics of flat, slim, rotating and cubic rigid bodies</figcaption>
+	  	</center>
+	</figure>
+</div>
+
+<p>The rigid bodies will not deform, so technically they won’t bounce. Here I’m using a method called Collision Impulse with Friction from “Nonconvex Rigid Bodies with Stacking”, Guendelman, Bridson, Fedkiw.</p>
+
+<h2 id="image-processing-from-scratch"><em>Image processing from scratch</em></h2>
+
+<p>This project contains dozens of classic image processing algorithms that are written from scratch.</p>
+
+<h3 id="feature-point-extraction-and-image-stitching">Feature point extraction and image stitching</h3>
+
+<p>Some famous feature point algorithms are implemented from scratch, including SIFT, SURF and ORB, they all have their own pros and cons. SIFT and SURF extract feature points in an image pyramid to achieve certain degree of scale invariant, whereas ORB simply does that on the original image. By carefully designing their descriptors, all the feature points from these algorithms are rotation invariant to some extent.</p>
+
+<figure>
+		<center>
+		  	<img src="./images/castle_match.jpg" alt="match" width="100%" height="100%" />
+		  	<figcaption>SIFT feature point extraction and matching</figcaption>
+	  	</center>
+</figure>
+
+<p>Image stitching can be done using the match pairs of feature points, basically we need to solve a linear equation system to get a homogeneous matrix, which can transform points from one coordinate system to another, combined with some algorithms like RANSAC to remove outliers, and some image fusion techniques, we can now stitch the images together.</p>
+
+<figure>
+		<center>
+		  	<img src="./images/castle_stitch.jpg" alt="stitch" width="100%" height="100%" />
+		  	<figcaption>image stitching</figcaption>
+	  	</center>
+</figure>
+
+<h3 id="image-matting">Image matting</h3>
+
+<div style="float:left">
+	<figure>
+		<center>
+		  	<img src="./images/image_matting/azu.jpeg" alt="Daniel Wu" width="45%" height="45%" />
+		  	<img src="./images/image_matting/azu.png" alt="Daniel Wu alpha matte" width="45%" height="45%" />
+		  	<figcaption>Daniel Wu</figcaption>
+	  	</center>
+	</figure>
+</div>
+
+<figure>
+	<center>
+	  	<img src="./images/image_matting/azu_trans.png" alt="Daniel Wu matting" width="45%" height="45%" />
+	  	<figcaption>Daniel Wu Matting</figcaption>
+	</center>
+</figure>
+
+<div style="float:left">
+	<figure>
+		<center>
+		  	<img src="./images/image_matting/2.jpg" alt="Girl" width="45%" height="45%" />
+		  	<img src="./images/image_matting/2.png" alt="Girl matte" width="45%" height="45%" />
+		  	<figcaption>Girl</figcaption>
+	  	</center>
+	</figure>
+</div>
+
+<div style="float:left">
+	<figure>
+		<center>
+		  	<img src="./images/image_matting/641.png" alt="Dancing" width="45%" height="45%" />
+		  	<img src="./images/image_matting/641_res.png" alt="Dancing matte" width="45%" height="45%" />
+		  	<figcaption>Dancing</figcaption>
+	  	</center>
+	</figure>
+</div>
+
+<div style="float:left">
+	<figure>
+		<center>
+		  	<img src="./images/image_matting/ts.jpeg" alt="angel" width="45%" height="45%" />
+		  	<img src="./images/image_matting/ts_res.png" alt="angel matte" width="45%" height="45%" />
+		  	<figcaption>Angel</figcaption>
+	  	</center>
+	</figure>
+</div>
+
+<h3 id="haze-removal">Haze removal</h3>
+
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
